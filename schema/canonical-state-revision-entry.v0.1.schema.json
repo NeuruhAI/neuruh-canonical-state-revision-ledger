@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Neuruh Canonical State Revision Entry v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "ledger_id", "revision_id", "sequence", "target_id",
+    "lifecycle_anchor_digest", "anchor_stage", "anchor_state_digest",
+    "revision_authorization_digest", "revision_receipt_digest", "revision_mode", "receipt_status",
+    "from_canonical_state_digest", "to_canonical_state_digest", "recorded_at",
+    "previous_entry_hash", "lifecycle_ledger_mutated", "lifecycle_transition_authority",
+    "canonical_state_revision_authority", "canonical_state_authority", "execution_authority",
+    "deployment_authority", "reconciliation_authority", "mutation_authority", "entry_hash"
+  ],
+  "properties": {
+    "schema_version": {"const": "neuruh.canonical-state-revision-ledger.v0.1"},
+    "ledger_id": {"type": "string", "minLength": 1},
+    "revision_id": {"type": "string", "minLength": 1},
+    "sequence": {"type": "integer", "minimum": 0},
+    "target_id": {"type": "string", "minLength": 1},
+    "lifecycle_anchor_digest": {"$ref": "#/$defs/sha256ref"},
+    "anchor_stage": {"enum": ["sandbox", "canary", "pilot", "production"]},
+    "anchor_state_digest": {"$ref": "#/$defs/sha256ref"},
+    "revision_authorization_digest": {"$ref": "#/$defs/sha256ref"},
+    "revision_receipt_digest": {"$ref": "#/$defs/sha256ref"},
+    "revision_mode": {"const": "adopt_observed"},
+    "receipt_status": {"const": "succeeded"},
+    "from_canonical_state_digest": {"$ref": "#/$defs/sha256ref"},
+    "to_canonical_state_digest": {"$ref": "#/$defs/sha256ref"},
+    "recorded_at": {"type": "string", "minLength": 1},
+    "previous_entry_hash": {"anyOf": [{"type": "null"}, {"$ref": "#/$defs/hex64"}]},
+    "lifecycle_ledger_mutated": {"const": false},
+    "lifecycle_transition_authority": {"const": false},
+    "canonical_state_revision_authority": {"const": false},
+    "canonical_state_authority": {"const": false},
+    "execution_authority": {"const": false},
+    "deployment_authority": {"const": false},
+    "reconciliation_authority": {"const": false},
+    "mutation_authority": {"const": false},
+    "entry_hash": {"$ref": "#/$defs/hex64"}
+  },
+  "$defs": {
+    "sha256ref": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "hex64": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}
