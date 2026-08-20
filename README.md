@@ -1,5 +1,7 @@
 # Neuruh Canonical State Revision Ledger
 
+[![ci](https://github.com/NeuruhAI/neuruh-canonical-state-revision-ledger/actions/workflows/ci.yml/badge.svg)](https://github.com/NeuruhAI/neuruh-canonical-state-revision-ledger/actions/workflows/ci.yml)
+
 Public Commons Release 035.
 
 An append-only, hash-chained memory of canonical-state revisions. Each revision lineage is anchored to exactly one Release 026 lifecycle entry (the lifecycle tip current when revision authority was granted) and consumes exactly one successful Release 034 canonical-state revision receipt per entry.
