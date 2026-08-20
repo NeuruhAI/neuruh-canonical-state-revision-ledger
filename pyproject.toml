@@ -1,16 +1,23 @@
 [build-system]
-requires=["setuptools>=68"]
-build-backend="setuptools.build_meta"
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
 
 [project]
-name="neuruh-canonical-state-revision-ledger"
-version="0.1.0a0"
-description="Append-only, hash-chained memory of canonical-state revisions anchored to one lifecycle tip. Memory, not power."
-requires-python=">=3.11"
-license={text="Apache-2.0"}
+name = "neuruh-canonical-state-revision-ledger"
+version = "0.1.0a0"
+description = "Append-only, hash-chained memory of canonical-state revisions anchored to one lifecycle tip. Memory, not power."
+requires-python = ">=3.11"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "Jeramie Hicks / Neuruh"}]
 
 [project.scripts]
 neuruh-canonical-state-revision-ledger="neuruh_canonical_state_revision_ledger.cli:main"
 
+[project.urls]
+Homepage = "https://github.com/NeuruhAI/neuruh-canonical-state-revision-ledger"
+Repository = "https://github.com/NeuruhAI/neuruh-canonical-state-revision-ledger"
+
 [tool.setuptools.packages.find]
-where=["src"]
+where = ["src"]
